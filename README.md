@@ -44,24 +44,13 @@ La versione 2.0 introduce:
 
 ---
 
-## 📂 Struttura del frontend
-frontend/
-├── src/
-│   ├── pages/              # Tutte le pagine divise per sezione (auth, pazienti, diete, ecc.)
-│   ├── components/         # Componenti riutilizzabili
-│   ├── context/            # Gestione auth context
-│   ├── services/           # Chiamate API centralizzate
-│   ├── routes/             # Routing protetto
-│   ├── utils/              # Utility varie
-│   └── App.jsx             # Entry point applicazione
-
----
-
 ## 🧪 Come avviare il progetto
 
 1. Clona il repository:
    ```bash
    git clone https://github.com/tuo-utente/NutriHouse.git
+
+---
 
 ✍️ Autore
 
