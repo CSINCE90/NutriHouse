@@ -55,7 +55,7 @@ La versione 2.0 introduce:
 ✍️ Autore
 
 Francesco Chifari
-📧 francescochifari@email.it
+📧 f.chifari22@gmail.com
 📍 Palermo, Italy
 💻 Junior Software Developer
 
