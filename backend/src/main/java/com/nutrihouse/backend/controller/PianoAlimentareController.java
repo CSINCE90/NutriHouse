@@ -12,15 +12,41 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PianoAlimentareController {
 
-    private final PianoAlimentareService pianoAlimentareService;
+    private final PianoAlimentareService pianoService;
 
-    @GetMapping
-    public List<PianoAlimentare> getAllPianiAlimentari() {
-        return pianoAlimentareService.findAll();
+    /* ============== CRUD base ============== */
+
+    @GetMapping                     // GET /piani
+    public List<PianoAlimentare> getAll() {
+        return pianoService.findAll();
     }
 
-    @PostMapping
+    @GetMapping("/{id}")            // GET /piani/{id}
+    public PianoAlimentare getById(@PathVariable Integer id) {
+        return pianoService.findById(id);
+    }
+
+    @PostMapping                    // POST /piani
     public PianoAlimentare create(@RequestBody PianoAlimentare piano) {
-        return pianoAlimentareService.save(piano);
+        return pianoService.save(piano);
+    }
+
+    @PutMapping("/{id}")            // PUT /piani/{id}
+    public PianoAlimentare update(@PathVariable Integer id,
+                                  @RequestBody PianoAlimentare piano) {
+        piano.setId(id);            // assicuro l’ID
+        return pianoService.save(piano);
+    }
+
+    @DeleteMapping("/{id}")         // DELETE /piani/{id}
+    public void delete(@PathVariable Integer id) {
+        pianoService.delete(id);
+    }
+
+    /* ============== filtro per paziente ============== */
+
+    @GetMapping("/paziente/{pazienteId}")   // GET /piani/paziente/{pazienteId}
+    public List<PianoAlimentare> byPaziente(@PathVariable Integer pazienteId) {
+        return pianoService.findByPaziente(pazienteId);
     }
 }

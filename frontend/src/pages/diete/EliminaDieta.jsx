@@ -64,8 +64,8 @@ const EliminaDieta = () => {
         {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
 
         <Typography sx={{ mb: 2 }}>
-          Sei sicuro di voler eliminare la dieta{' '}
-          <strong>{dieta?.descrizione || 'sconosciuta'}</strong>?
+          Sei sicuro di voler eliminare la dieta del paziente{' '}
+          <strong>{dieta?.nome || ''}</strong>?
         </Typography>
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 3 }}>

@@ -39,11 +39,11 @@ git clone https://github.com/francescochifari/nutrihouse.git
 cd nutrihouse
 
 # 2. Avvia il backend (Spring Boot)
-cd nutrihouse-backend
+cd backend
 ./mvnw spring-boot:run
 
 # 3. Avvia il frontend (Vite)
-cd ../nutrihouse-frontend
+cd ../frontend
 npm install
 npm run dev
 ```

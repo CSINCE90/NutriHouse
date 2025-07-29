@@ -79,5 +79,24 @@ export const createDietaAlimento = (data) =>
 export const createDietaAlimentoBulk = (data) =>
   api.post('/dieta-alimento/bulk', data).then((r) => r.data);
 
+// ============ PIANI ALIMENTARI ============
+
+export const getPiani = () => api.get('/piani').then((r) => r.data);
+
+export const getPianoById = (id) =>
+  api.get(`/piani/${id}`).then((r) => r.data);
+
+export const getPianiByPaziente = (pazienteId) =>
+  api.get(`/piani/paziente/${pazienteId}`).then((r) => r.data);
+
+export const createPiano = (data) =>
+  api.post('/piani', data).then((r) => r.data);
+
+export const updatePiano = (id, data) =>
+  api.put(`/piani/${id}`, data).then((r) => r.data);
+
+export const deletePiano = (id) =>
+  api.delete(`/piani/${id}`).then((r) => r.data);
+
 // Export default instance in caso serva altrove
 export default api;

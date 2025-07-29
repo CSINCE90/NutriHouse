@@ -15,6 +15,8 @@ import {
 } from '@mui/material';
 import api from '../../services/api';
 import dayjs from 'dayjs';
+import 'dayjs/locale/it';
+dayjs.locale('it');
 
 const ListaDiete = () => {
   const { id } = useParams();
@@ -81,9 +83,15 @@ const ListaDiete = () => {
           <TableHead>
             <TableRow>
               <TableCell>Descrizione</TableCell>
-              <TableCell>Data Creazione</TableCell>
-              <TableCell>Data Fine</TableCell>
-              <TableCell>Kcal</TableCell>
+              <TableCell>Data visita</TableCell>
+              <TableCell>Peso&nbsp;(kg)</TableCell>
+              <TableCell>Altezza&nbsp;(cm)</TableCell>
+              <TableCell>Circonf. vita&nbsp;(cm)</TableCell>
+              <TableCell>BMI</TableCell>
+              <TableCell>Massa musc.&nbsp;(kg)</TableCell>
+              <TableCell>Massa grassa&nbsp;(kg)</TableCell>
+              <TableCell>Liquidi&nbsp;(kg)</TableCell>
+              <TableCell>Note cliniche</TableCell>
               <TableCell align="right">Azioni</TableCell>
             </TableRow>
           </TableHead>
@@ -92,24 +100,29 @@ const ListaDiete = () => {
               <TableRow key={dieta.id}>
                 <TableCell>{dieta.descrizione}</TableCell>
                 <TableCell>
-                  {dieta.dataCreazione
-                    ? dayjs(dieta.dataCreazione).format('DD/MM/YYYY')
+                  {dieta.dataVisita
+                    ? dayjs(dieta.dataVisita).format('DD/MM/YYYY')
                     : '-'}
                 </TableCell>
-                <TableCell>
-                  {dieta.dataFine
-                    ? dayjs(dieta.dataFine).format('DD/MM/YYYY')
-                    : '-'}
+                <TableCell>{dieta.pesoKg ?? '-'}</TableCell>
+                <TableCell>{dieta.altezzaCm ?? '-'}</TableCell>
+                <TableCell>{dieta.circonferenzaVitaCm ?? '-'}</TableCell>
+                <TableCell>{dieta.bmi ?? '-'}</TableCell>
+                <TableCell>{dieta.massaMuscolare ?? '-'}</TableCell>
+                <TableCell>{dieta.massaGrassa ?? '-'}</TableCell>
+                <TableCell>{dieta.liquidi ?? '-'}</TableCell>
+                <TableCell sx={{ maxWidth: 200, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                  {dieta.noteCliniche ?? '-'}
                 </TableCell>
-                <TableCell>{dieta.kcalGiorno ?? '-'}</TableCell>
                 <TableCell align="right">
                   <Button
                     size="small"
                     variant="outlined"
+                    color="primary"
                     component={Link}
-                    to={`/pazienti/${id}/diete/${dieta.id}`}
+                    to={`/pazienti/${id}/diete/${dieta.id}/modifica`}
                   >
-                    Dettagli
+                    Modifica
                   </Button>
                 </TableCell>
               </TableRow>

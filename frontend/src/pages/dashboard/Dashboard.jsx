@@ -55,7 +55,8 @@ const Dashboard = () => {
             {[
               { text: 'Dashboard', path: '/dashboard', icon: <DashboardIcon /> },
               { text: 'Pazienti', path: '/pazienti', icon: <PeopleIcon /> },
-              { text: 'Diete', path: '/diete', icon: <RestaurantMenuIcon /> },
+              { text: 'Piani', path: '/piani', icon: <RestaurantMenuIcon /> },
+              //{ text: 'Diete', path: '/diete', icon: <RestaurantMenuIcon /> },
               { text: 'Alimenti', path: '/alimenti', icon: <LocalDiningIcon /> },
               { text: 'Planner', path: '/planner', icon: <CalendarMonthIcon /> },
               { text: 'info', path: '/info', icon: <InfoIcon /> }
@@ -117,7 +118,7 @@ const Dashboard = () => {
           Da qui puoi gestire pazienti, diete, planner settimanali e alimenti.
         </Typography>
         <Typography variant="caption" sx={{ mt: 4, color: 'text.secondary' }}>
-          Versione 2.0 · sviluppato da <strong>Versione 1.0 · sviluppato da Francesco Chifari – Software Engineer</strong>
+          Versione 2.0 <strong>· sviluppato da Francesco Chifari – Software Engineer</strong>
         </Typography>
       </Box>
     </Box>

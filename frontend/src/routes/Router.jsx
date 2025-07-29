@@ -8,18 +8,21 @@ import NuovaDieta from "../pages/diete/NuovaDieta";
 import ModificaDieta from "../pages/diete/ModificaDieta";
 import EliminaDieta from "../pages/diete/EliminaDieta";
 import ListaDiete from "../pages/diete/Index";
-import DettaglioDieta from "../pages/diete/DettaglioDieta";
-import Planner from "../pages/planner/Calendario";
-import ListaAlimenti from "../pages/alimenti/ListaAlimenti";
-import NuovoAlimento from "../pages/alimenti/NuovoAlimento";
-import ModificaAlimento from "../pages/alimenti/ModificaAlimento";
-import EliminaAlimento from "../pages/alimenti/EliminaAlimento";
+import DettaglioDieta from "../pages/pazienti/diete/DettaglioDieta";
+//import Planner from "../pages/planner/Calendario";
+//import ListaAlimenti from "../pages/alimenti/ListaAlimenti";
+//import NuovoAlimento from "../pages/alimenti/NuovoAlimento";
+//import ModificaAlimento from "../pages/alimenti/ModificaAlimento";
+//import EliminaAlimento from "../pages/alimenti/EliminaAlimento";
 import PrivateRoute from "../components/PrivateRoute";
 import MainLayout from "../components/layouts/MainLayout";
 import NuovoPaziente from "../pages/pazienti/Nuovo";
 import DettaglioPaziente from "../pages/pazienti/Dettaglio";
 import ModificaPaziente from "../pages/pazienti/Modifica";
 import PazienteDelete from "../pages/pazienti/Delete";
+import PianiIndex from "../pages/piani/Index";
+import NuovoPiano from "../pages/piani/Nuovo";
+import ModificaPiano from "../pages/piani/Modifica";
 
 const Router = () => {
   return (
@@ -30,27 +33,32 @@ const Router = () => {
         <Route element={<PrivateRoute><MainLayout /></PrivateRoute>}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/pazienti" element={<ListaPazienti />} />
-          <Route path="/pazienti/nuova" element={<NuovoPaziente />} />
-          <Route path="/pazienti/:id" element={<Outlet />}>
-            {/* Patient detail and actions */}
-            <Route index element={<DettaglioPaziente />} />
-            <Route path="modifica" element={<ModificaPaziente />} />
-            <Route path="delete" element={<PazienteDelete />} />
+          <Route path="/pazienti/nuovo" element={<NuovoPaziente />} />
+          {/* Dettaglio paziente */}
+          <Route path="/pazienti/:id" element={<DettaglioPaziente />} />
 
-            {/* Diete nested under a patient */}
-            <Route path="diete" element={<Outlet />}>
-              <Route index element={<ListaDiete />} />
-              <Route path="nuova" element={<NuovaDieta />} />
-              <Route path=":dietaId" element={<DettaglioDieta />} />
-              <Route path=":dietaId/modifica" element={<ModificaDieta />} />
-              <Route path=":dietaId/elimina" element={<EliminaDieta />} />
-              {/* Alimenti nested under a specific diet */}
-              <Route path=":dietaId/alimenti" element={<Outlet />}>
-                <Route index element={<ListaAlimenti />} />
-                <Route path="nuova" element={<NuovoAlimento />} />
-                <Route path=":alimentoId/modifica" element={<ModificaAlimento />} />
-                <Route path=":alimentoId/elimina" element={<EliminaAlimento />} />
-              </Route>
+          {/* Modifica ed elimina paziente a livello principale */}
+          <Route path="/pazienti/:id/modifica" element={<ModificaPaziente />} />
+          <Route path="/pazienti/:id/delete" element={<PazienteDelete />} />
+
+          {/* Piani alimentari */}
+          <Route path="/piani" element={<PianiIndex />} />
+          <Route path="/piani/nuovo" element={<NuovoPiano />} />
+          <Route path="/piani/:id" element={<ModificaPiano />} />
+
+          {/* Diete nested under a patient */}
+          <Route path="/pazienti/:id/diete" element={<Outlet />}>
+            <Route index element={<ListaDiete />} />
+            <Route path="nuova" element={<NuovaDieta />} />
+            <Route path=":dietaId" element={<DettaglioDieta />} />
+            <Route path=":dietaId/modifica" element={<ModificaDieta />} />
+            <Route path=":dietaId/elimina" element={<EliminaDieta />} />
+            {/* Alimenti nested under a specific diet */}
+            <Route path=":dietaId/alimenti" element={<Outlet />}>
+              <Route index element={<ListaAlimenti />} />
+              <Route path="nuova" element={<NuovoAlimento />} />
+              <Route path=":alimentoId/modifica" element={<ModificaAlimento />} />
+              <Route path=":alimentoId/elimina" element={<EliminaAlimento />} />
             </Route>
           </Route>
 

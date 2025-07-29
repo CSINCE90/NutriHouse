@@ -22,6 +22,23 @@ public class DietaGiornalieraService {
         return dietaRepository.save(dieta);
     }
 
+    public void delete(Integer id) {
+        dietaRepository.deleteById(id);
+    }
+
+    //findbyId
+    public DietaGiornaliera findById(Integer id) {
+        return dietaRepository.findById(id).orElse(null);
+    }
+
+    /**
+     * Restituisce tutte le diete giornaliere associate a un paziente specifico.
+     */
+    public List<DietaGiornaliera> findByPazienteId(Integer pazienteId) {
+        return dietaRepository.findByPaziente_Id(pazienteId);
+    }
+
+
     
 }
 

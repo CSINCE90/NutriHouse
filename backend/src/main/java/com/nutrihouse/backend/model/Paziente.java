@@ -22,6 +22,14 @@ public class Paziente {
 
     private String email;
     private String telefono;
+    private String sesso;
+    @Column(nullable = false)
+    private java.time.LocalDate dataDiNascita;
+    private Double peso;           // kg
+    private Double altezza;        // cm
+    @Column(columnDefinition = "TEXT")
+    private String note;           // annotazioni libere
+    private String codiceFiscale;
 
     @ManyToOne
     @JoinColumn(name = "id_user", nullable = false)

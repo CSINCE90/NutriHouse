@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Outlet } from 'react-router-dom';
 import { Container, Typography, Box, Paper, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { getPazienteById } from '../../services/api';
@@ -60,14 +60,6 @@ const DettaglioPaziente = () => {
               Diete
             </Button>
             <Button
-              variant="contained"
-              color="success"
-              component={Link}
-              to={`/pazienti/${id}/diete/nuova`}
-            >
-              Nuova dieta
-            </Button>
-            <Button
               variant="outlined"
               component={Link}
               to={`/pazienti/${id}/modifica`}
@@ -101,6 +93,7 @@ const DettaglioPaziente = () => {
           <Typography><strong>Telefono:</strong> {paziente.telefono}</Typography>
           <Typography><strong>Note:</strong> {paziente.note}</Typography>
         </Paper>
+        <Outlet />
       </Box>
     </Container>
   );

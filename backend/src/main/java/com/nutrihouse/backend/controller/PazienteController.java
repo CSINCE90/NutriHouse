@@ -56,4 +56,17 @@ public class PazienteController {
 
         return pazienteRepository.save(paziente);
     }
+
+    //PUT MODIFICA PAZIENTE
+    @PutMapping("/{id}")
+    public Paziente update(@PathVariable Long id, @RequestBody Paziente paziente) {
+        paziente.setId(id);
+        return pazienteRepository.save(paziente);
+    }
+
+    //DELETE PAZIENTE
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        pazienteRepository.deleteById(id);
+    }
 }

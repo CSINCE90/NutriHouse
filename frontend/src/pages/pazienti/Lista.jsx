@@ -88,7 +88,7 @@ const ListaPazienti = () => {
         </Typography>
 
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
-          <Button variant="contained" component={Link} to="nuovo">
+          <Button variant="contained" component={Link} to="/pazienti/nuovo">
             Nuovo paziente
           </Button>
         </Box>

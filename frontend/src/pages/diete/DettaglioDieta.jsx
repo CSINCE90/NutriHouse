@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
@@ -56,26 +54,40 @@ const DettaglioDieta = () => {
     <Container maxWidth="sm">
       <Box mt={4}>
         <Typography variant="h5" gutterBottom>
-          Dettaglio Dieta
+          Dettaglio Visita Clinica
         </Typography>
 
         <Typography sx={{ mb: 1 }}>
-          <strong>Descrizione:</strong> {dieta.descrizione || '-'}
+          <strong>Data visita:</strong>{" "}
+          {dieta.dataVisita
+            ? new Date(dieta.dataVisita).toLocaleDateString("it-IT")
+            : "-"}
         </Typography>
         <Typography sx={{ mb: 1 }}>
-          <strong>Kcal giornaliere:</strong> {dieta.kcalGiorno ?? '-'}
+          <strong>Peso (kg):</strong> {dieta.pesoKg ?? "-"}
         </Typography>
         <Typography sx={{ mb: 1 }}>
-          <strong>Data creazione:</strong>{' '}
-          {dieta.dataCreazione
-            ? new Date(dieta.dataCreazione).toLocaleDateString('it-IT')
-            : '-'}
+          <strong>Altezza (cm):</strong> {dieta.altezzaCm ?? "-"}
+        </Typography>
+        <Typography sx={{ mb: 1 }}>
+          <strong>Circonferenza vita (cm):</strong>{" "}
+          {dieta.circonferenzaVitaCm ?? "-"}
+        </Typography>
+        <Typography sx={{ mb: 1 }}>
+          <strong>BMI:</strong> {dieta.bmi ?? "-"}
+        </Typography>
+        <Typography sx={{ mb: 1 }}>
+          <strong>Massa muscolare (kg):</strong>{" "}
+          {dieta.massaMuscolare ?? "-"}
+        </Typography>
+        <Typography sx={{ mb: 1 }}>
+          <strong>Massa grassa (kg):</strong> {dieta.massaGrassa ?? "-"}
         </Typography>
         <Typography sx={{ mb: 2 }}>
-          <strong>Data fine:</strong>{' '}
-          {dieta.dataFine
-            ? new Date(dieta.dataFine).toLocaleDateString('it-IT')
-            : '-'}
+          <strong>Liquidi (kg):</strong> {dieta.liquidi ?? "-"}
+        </Typography>
+        <Typography sx={{ mb: 2 }}>
+          <strong>Note cliniche:</strong> {dieta.noteCliniche || "-"}
         </Typography>
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 3 }}>
